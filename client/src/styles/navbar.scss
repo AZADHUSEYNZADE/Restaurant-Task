@@ -1,0 +1,22 @@
+.mainNavbarDiv {
+  display: flex;
+  justify-content: space-around;
+  background-color: red;
+  padding: 10px;
+}
+.navbarUl {
+  display: flex;
+}
+li {
+  list-style: none;
+  margin-left: 30px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.restaurantDiv {
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+  margin-top: 10px;
+}

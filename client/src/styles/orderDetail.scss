@@ -36,6 +36,7 @@ td {
 }
 .endBtn {
   @include buttonProperties;
+  margin-top: 20px;
 }
 .endBtn:hover {
   @include buttonHoverProperties;
