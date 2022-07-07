@@ -1,0 +1,43 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+.mainDetailDiv {
+  display: flex;
+  justify-content: center;
+}
+th {
+  font-size: 12px;
+  font-weight: bold;
+}
+td {
+  border: 3px solid $TextcolorW;
+  padding: 5px;
+  font-size: 15px;
+  position: relative;
+  border-radius: 8px;
+  text-align: center;
+}
+.detailNumber {
+  font-size: 18px;
+  position: absolute;
+  top: 6px;
+}
+.givingBtn {
+  background-color: red;
+  border: none;
+  color: $TextcolorW;
+  cursor: pointer;
+}
+
+.gettingBackBtn {
+  background-color: red;
+  border: none;
+  color: $TextcolorW;
+  cursor: pointer;
+}
+.endBtn {
+  @include buttonProperties;
+}
+.endBtn:hover {
+  @include buttonHoverProperties;
+  border: 5px solid red;
+}

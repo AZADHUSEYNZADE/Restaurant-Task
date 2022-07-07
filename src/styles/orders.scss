@@ -1,0 +1,77 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+body {
+  background-color: floralwhite;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.mainDiv {
+  display: flex;
+  justify-content: center;
+}
+table {
+  margin-top: 50px;
+  background-color: red;
+  padding: 50px;
+  border-radius: 8px;
+}
+tr {
+  color: white;
+  margin-bottom: 30px;
+}
+
+td {
+  border: 3px solid white;
+  padding: 5px;
+  font-size: 15px;
+  position: relative;
+  border-radius: 8px;
+  text-align: center;
+}
+td span {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.addNewButton {
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 20px 20px;
+  border: none;
+  background-color: red;
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.addNewButton:hover {
+  @include buttonHoverProperties;
+  border: 5px solid red;
+}
+.number {
+  font-size: 18px;
+  position: absolute;
+  top: 6px;
+}
+.lookBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 10px;
+  cursor: pointer;
+  border: 1px solid white;
+}
+.lookBtn:hover {
+  background-color: white;
+  color: red;
+}
+
+.total {
+  color: white;
+  font-weight: 600;
+}

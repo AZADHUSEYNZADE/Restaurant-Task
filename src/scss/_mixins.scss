@@ -1,0 +1,14 @@
+@mixin buttonProperties {
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 20px 20px;
+  border: none;
+  background-color: red;
+  color: white;
+  display: flex;
+  margin: 0 auto;
+}
+@mixin buttonHoverProperties {
+  background-color: white;
+  color: red;
+}
