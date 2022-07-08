@@ -9,8 +9,9 @@ const ORDER_STATUS = {
 };
 
 const COMPANY_INFO = {
-  title: "",
-  description: "",
+  title: "Some Restaurant",
+  description:
+    "This is a restaurant based in Azerbaijan Baku. It has been serving customers for over five years now",
 };
 
 const WAITERS = [

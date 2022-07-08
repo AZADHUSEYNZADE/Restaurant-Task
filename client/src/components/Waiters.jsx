@@ -3,41 +3,48 @@ import "../styles/waiters.scss";
 import workers from "../mockData/workers";
 function Waiters() {
   const [waiters, setWorkers] = useState(workers);
+
+  function getWaiters() {
+    fetch(`http://localhost:3333/api/waiters`)
+      .then((response) => response.json())
+      .then((data) => {
+        setWorkers(data);
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  }
+
   useEffect(() => {
-    setWorkers(workers);
-  });
+    getWaiters();
+  }, []);
   return (
-    <div>
-      {waiters.map(() => {
-        return (
-          <div>
-            <table>
-              <tr>
-                <th>Number</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Birthday</th>
-                <th>Avatar</th>
-              </tr>
-              {waiters.map((waiter) => {
-                return (
-                  <tr>
-                    <td>{waiter.id}</td>
-                    <td>{waiter.name}</td>
-                    <td>{waiter.surname}</td>
-                    <td>{waiter.email}</td>
-                    <td>{waiter.birthday}</td>
-                    <td>
-                      <img className="avatarImg" src={waiter.avatar} alt="" />
-                    </td>
-                  </tr>
-                );
-              })}
-            </table>
-          </div>
-        );
-      })}
+    <div className="mainWaiterDiv">
+      <table>
+        <tr>
+          <th>Number</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Birthday</th>
+          <th>Avatar</th>
+        </tr>
+        {waiters.map((waiter) => {
+          return (
+            <tr>
+              <td>{waiter.id}</td>
+              <td>{waiter.firstname}</td>
+              <td>{waiter.lastname}</td>
+              <td>{waiter.gender}</td>
+              <td>{waiter.email}</td>
+              <td>{waiter.birthdate}</td>
+              <td>{waiter.avatar}</td>
+            </tr>
+          );
+        })}
+      </table>
     </div>
   );
 }

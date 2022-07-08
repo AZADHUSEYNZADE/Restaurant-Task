@@ -1,53 +1,68 @@
 @import "../scss/mixins";
 @import "../scss/variables";
-// // .mainNewOrderDiv {
-// //   display: flex;
-// //   flex-direction: row;
-// //   justify-content: center;
-// // }
-select {
-  width: 150px;
-  outline: none;
-  border: 2px solid red;
-  margin: 20px 0px;
-  border-radius: 4px;
-  color: red;
-  padding: 15px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  text-align: center;
-  margin-left: 10px;
-}
-
-.addedPrice {
-  text-align: center;
-  color: red;
-}
-
-.addedBtn {
-  @include buttonProperties;
-}
-.addedBtn:hover {
-  @include buttonHoverProperties;
-  border: 5px solid red;
-}
 
 .sidesDiv {
-  display: flex;
-  justify-content: space-around;
+  @include justifyAround;
   height: 100vh;
-  align-items: center;
-}
+  align-items: $AlignItemsC;
 
-.leftSide {
-  display: flex;
-  flex-direction: column;
-}
-.countInput {
-  display: flex;
-  margin: 0 auto;
-  padding: 5px;
-  border: 2px solid red;
-  outline: none;
-  border-radius: 8px;
+  .leftSide {
+    display: $dFlex;
+    flex-direction: $flexColumn;
+  }
+  .countInput {
+    @include marginAuto;
+    padding: 5px;
+    border: 2px solid $TextcolorR;
+    outline: $outLine;
+    border-radius: $borderRadius;
+  }
+  select {
+    width: 150px;
+    outline: $outLine;
+    border: 2px solid $TextcolorR;
+    margin: 20px 0px;
+    border-radius: $borderRadius;
+    color: $TextcolorR;
+    padding: 15px 20px;
+    font-size: $fontSize;
+    font-weight: $boldWight;
+    text-align: $TextcAlignC;
+    margin-left: 10px;
+  }
+
+  .addedPrice {
+    text-align: $TextcAlignC;
+    color: $TextcolorR;
+  }
+
+  .addedBtn {
+    @include buttonProperties;
+  }
+  .addedBtn:hover {
+    @include buttonHoverProperties;
+    border: 5px solid $TextcolorR;
+  }
+  .rightSideTable {
+    table {
+      margin-top: 50px;
+      background-color: $TextcolorR;
+      padding: 50px;
+      border-radius: $borderRadius;
+    }
+
+    tr {
+      color: $TextcolorW;
+      margin-bottom: 30px;
+    }
+
+    td {
+      border: 3px solid $TextcolorW;
+      padding: 5px;
+      font-size: $fontSize15;
+      position: relative;
+      border-radius: $borderRadius;
+      text-align: $TextcAlignC;
+    }
+  }
 }

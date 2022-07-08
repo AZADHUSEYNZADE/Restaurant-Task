@@ -1,13 +1,34 @@
+@import "../scss/mixins";
+@import "../scss/variables";
 .mainNewMealDiv {
-  display: flex;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-.mainNewMealDiv select {
-  display: flex;
-  margin: 0 auto;
+  @include marginAuto;
+  margin-top: $marginTop50;
+  select {
+    width: 150px;
+    outline: $outLine;
+    border: 2px solid $TextcolorR;
+    margin: 20px 0px;
+    border-radius: $borderRadius;
+    color: $TextcolorR;
+    padding: 15px 20px;
+    font-size: $fontSize;
+    font-weight: $boldWight;
+    text-align: $TextcAlignC;
+    margin-left: 10px;
+    @include marginAuto;
+  }
 }
 
 .countInput {
-  margin-top: 100px;
+  @include marginAuto;
+  margin-top: $marginTop50;
+  padding: 10px;
+  border: 2px solid $TextcolorR;
+  border-radius: $borderRadius;
+  outline: $outLine;
+}
+.addedPrice {
+  text-align: $TextcAlignC;
+  font-size: $fontSize;
+  color: $TextcolorR;
 }

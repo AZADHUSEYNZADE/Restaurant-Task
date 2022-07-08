@@ -1,49 +1,28 @@
 @import "../scss/mixins";
 @import "../scss/variables";
 .infoDiv {
-  display: flex;
+  @include marginAuto;
   flex-direction: column;
-  margin: 0 auto;
-}
-.restInfo {
-  font-size: 18px;
-  text-align: center;
-  align-items: center;
-  font-weight: 400;
-  max-width: 800px;
-  width: 100%;
-  // height: 50px;
-  padding: 30px 40px;
-  display: flex;
-  margin: 0 auto;
-  margin-top: 100px;
-  border-radius: 8px;
-  color: red;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-.dailyOrders {
-  text-align: center;
-  font-weight: bold;
-  font-size: 22px;
-  color: red;
-}
-.orders {
-  text-align: center;
-  font-weight: bold;
-  font-size: 22px;
-  color: red;
-}
-.ordersLink {
-  text-align: center;
-  font-weight: bold;
-  font-size: 22px;
-  color: red;
-}
-
-.arrow {
-  color: $TextcolorW;
-  font-weight: 600;
-  margin-top: 5px;
+  .restInfo {
+    font-size: $fontSize;
+    text-align: $TextcAlignC;
+    align-items: $AlignItemsC;
+    font-weight: 400;
+    max-width: 800px;
+    padding: 30px 40px;
+    @include marginAuto;
+    margin-top: $marginTop100;
+    border-radius: $borderRadius;
+    color: $TextcolorR;
+    box-shadow: $boxShadow;
+  }
+  .dailyOrders {
+    @include orderSizing;
+  }
+  .orders {
+    @include orderSizing;
+  }
+  .ordersLink {
+    @include orderSizing;
+  }
 }

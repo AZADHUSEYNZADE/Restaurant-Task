@@ -52,7 +52,7 @@ function NewOrder() {
         </div>
       </div>
 
-      <div>
+      <div className="rightSideTable">
         <table>
           <tr>
             <th>Name</th>

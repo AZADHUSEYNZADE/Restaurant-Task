@@ -1,7 +1,33 @@
+@import "../scss/mixins";
+@import "../scss/variables";
 .mainFoodsDiv {
-  display: flex;
-  justify-content: center;
+  @include justifyCenter;
+  table {
+    margin-top: 50px;
+    background-color: $TextcolorR;
+    padding: 50px;
+    border-radius: $borderRadius;
+  }
+
+  tr {
+    color: $TextcolorW;
+    margin-bottom: 30px;
+  }
+
+  td {
+    border: 3px solid $TextcolorW;
+    padding: 5px;
+    font-size: $fontSize15;
+    position: relative;
+    border-radius: $borderRadius;
+    text-align: $TextcAlignC;
+  }
 }
 .addedBtn {
+  @include buttonProperties;
   margin-top: 30px;
+}
+.addedBtn:hover {
+  @include buttonHoverProperties;
+  border: 5px solid $TextcolorR;
 }

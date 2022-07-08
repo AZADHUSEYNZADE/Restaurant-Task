@@ -1,48 +1,67 @@
 import React, { useState, useEffect } from "react";
 import "../styles/new-meal.scss";
-import addedOrders from "../mockData/addingOrders";
 
 function NewMeal() {
-  const [newOrders, setNewOrders] = useState(addedOrders);
+  const [newMeals, setNewMeals] = useState([]);
+  const [waiters, setWaiters] = useState([]);
+
+  function getNewMeals() {
+    fetch(`http://localhost:3333/api/foods`)
+      .then((response) => response.json())
+      .then((data) => {
+        setNewMeals(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  }
+  function getWaiters() {
+    fetch(`http://localhost:3333/api/waiters`)
+      .then((response) => response.json())
+      .then((data) => {
+        setWaiters(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  }
+
   useEffect(() => {
-    setNewOrders(addedOrders);
-    console.log(newOrders);
+    getNewMeals();
+    getWaiters();
   }, []);
+
   return (
     <div>
       <div className="mainNewMealDiv">
         <select>
-          {newOrders.map((item) => {
+          {newMeals.map((newMeal) => {
             return (
               <>
-                {item.meals.map((order) => {
-                  return <option key={order}>{order}</option>;
-                })}
+                <option>{newMeal.name}</option>
               </>
             );
           })}
         </select>
         <select>
-          {newOrders.map((item) => {
+          {waiters.map((waiter) => {
             return (
               <>
-                {item.numbersOfTheTable.map((order) => {
-                  return <option key={order}>Table {order}</option>;
-                })}
+                <option>
+                  {waiter.firstname}
+                  {waiter.lastname}
+                </option>
               </>
             );
           })}
         </select>
+
         <select>
-          {newOrders.map((item) => {
-            return (
-              <>
-                {item.servants.map((order) => {
-                  return <option key={order}>{order}</option>;
-                })}
-              </>
-            );
-          })}
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
         </select>
       </div>
       <input type="number" className="countInput" />

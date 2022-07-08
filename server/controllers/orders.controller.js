@@ -1,26 +1,60 @@
-const Orders = require("../db").orders;
+const { v4 } = require("uuid");
+const { orders: Orders } = require("../db");
 
 exports.create = async (req, res) => {
-  // const order = {
-  //   username: req.body.username,
-  //   email: req.body.email,
-  //   avatar: fileLocation,
-  //   password: req.body.password,
-  //   birthdate: req.body.birthdate,
-  // };
-  // Save Order in the database
+  const newOrder = {
+    id: v4(),
+    tableNumber: req.body.tableNumber,
+    waiter: req.body.waiterId,
+    foods: req.body.foods,
+    status: req.body.status,
+    createdAt: Date.now(),
+  };
+
+  Orders.push(newOrder);
 };
 
-// Retrieve all Orders from the database.
 exports.findAll = (req, res) => {
   res.send(Orders);
 };
 
-// Find a single Order with an id
-exports.findOne = (req, res) => {};
+exports.findOne = (req, res) => {
+  if (!req.params.id) {
+    res.status(400).send("Id was not provided");
+  } else {
+    const foundOrder = Orders.find((order) => order.id === req.params.id);
+    if (foundOrder) {
+      res.send(foundOrder);
+    } else {
+      res.status(404).send("Order was not found");
+    }
+  }
+};
 
-// Update a Order by the id in the request
-exports.update = (req, res) => {};
+exports.update = (req, res) => {
+  if (!req.params.id) {
+    res.status(400).send("Id was not provided");
+  } else {
+    Orders = Orders.map((order) => {
+      if (order.id === req.params.id) {
+        return { ...order, ...req.body, id: req.params.id };
+      }
+      return order;
+    });
+    res.status(200).send("Successfully updated Order");
+  }
+};
 
-// Delete a Order with the specified id in the request
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  if (!req.params.id) {
+    res.status(400).send("Id was not provided");
+  } else {
+    const index = Orders.findIndex((order) => order.id === req.params.id);
+    if (index === -1) {
+      res.status(404).send("No Order found with the given ID");
+    } else {
+      Orders.splice(index, 1);
+      res.status(200).send("Successfully deleted Order");
+    }
+  }
+};
