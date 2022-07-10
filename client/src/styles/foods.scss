@@ -20,14 +20,10 @@
     font-size: $fontSize15;
     position: relative;
     border-radius: $borderRadius;
-    text-align: $TextcAlignC;
+    text-align: center;
   }
 }
 .addedBtn {
   @include buttonProperties;
   margin-top: 30px;
-}
-.addedBtn:hover {
-  @include buttonHoverProperties;
-  border: 5px solid $TextcolorR;
 }

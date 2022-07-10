@@ -3,17 +3,14 @@
 
 .addNewButton {
   border-radius: $borderRadius;
-  cursor: $cursor;
+  cursor: pointer;
   padding: 20px 20px;
-  border: $border;
+  border: none;
   background-color: $TextcolorR;
   color: $TextcolorW;
-  @include marginAuto;
   margin-top: 50px;
-}
-.addNewButton:hover {
-  @include buttonHoverProperties;
-  border: 5px solid $TextcolorR;
+
+  @include marginAuto;
 }
 
 .mainDiv {
@@ -37,7 +34,7 @@
     font-size: $fontSize15;
     position: relative;
     border-radius: $borderRadius;
-    text-align: $TextcAlignC;
+    text-align: center;
   }
   td span {
     font-size: $fontSize15;
@@ -52,19 +49,15 @@
   .lookBtn {
     background-color: $TextcolorR;
     color: $TextcolorW;
-    border: $border;
+    border: none;
     border-radius: $borderRadius;
     padding: 10px;
-    cursor: $cursor;
+    cursor: pointer;
     border: 1px solid $TextcolorW;
-  }
-  .lookBtn:hover {
-    background-color: $TextcolorW;
-    color: $TextcolorR;
   }
 
   .total {
     color: $TextcolorW;
-    font-weight: $boldWight;
+    font-weight: bold;
   }
 }

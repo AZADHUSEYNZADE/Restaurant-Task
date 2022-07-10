@@ -1,7 +1,15 @@
 @import "../scss/mixins";
 @import "../scss/variables";
+
 .mainWaiterDiv {
   @include justifyCenter;
+  flex-direction: column;
+
+  button {
+    @include buttonProperties;
+    margin-top: 30px;
+  }
+
   table {
     margin-top: 50px;
     background-color: $TextcolorR;
@@ -20,6 +28,6 @@
     font-size: $fontSize15;
     position: relative;
     border-radius: $borderRadius;
-    text-align: $TextcAlignC;
+    text-align: center;
   }
 }

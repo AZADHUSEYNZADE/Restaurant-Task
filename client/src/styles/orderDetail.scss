@@ -13,7 +13,7 @@
     font-size: 15px;
     position: relative;
     border-radius: 8px;
-    text-align: $TextcAlignC;
+    text-align: center;
   }
   .detailNumber {
     font-size: 18px;
@@ -37,8 +37,4 @@
 .endBtn {
   @include buttonProperties;
   margin-top: 20px;
-}
-.endBtn:hover {
-  @include buttonHoverProperties;
-  border: 5px solid $TextcolorR;
 }

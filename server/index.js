@@ -3,6 +3,7 @@ const cors = require("cors");
 const { json } = require("express");
 const fileupload = require("express-fileupload");
 const path = require("path");
+const db = require("./db");
 
 const app = express();
 app.use(fileupload());
@@ -15,6 +16,10 @@ app.use("/public", express.static(path.join(__dirname, "/public")));
 require("./routes/orders.routes")(app);
 require("./routes/waiters.routes")(app);
 require("./routes/foods.routes")(app);
+
+app.get("/api/company-info", (req, res) => {
+  res.send(db.companyInfo);
+});
 
 app.listen(process.env.PORT || 3333);
 

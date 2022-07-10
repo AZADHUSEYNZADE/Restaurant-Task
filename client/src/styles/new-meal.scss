@@ -5,15 +5,15 @@
   margin-top: $marginTop50;
   select {
     width: 150px;
-    outline: $outLine;
+    outline: none;
     border: 2px solid $TextcolorR;
     margin: 20px 0px;
     border-radius: $borderRadius;
     color: $TextcolorR;
     padding: 15px 20px;
     font-size: $fontSize;
-    font-weight: $boldWight;
-    text-align: $TextcAlignC;
+    font-weight: bold;
+    text-align: center;
     margin-left: 10px;
     @include marginAuto;
   }
@@ -25,10 +25,10 @@
   padding: 10px;
   border: 2px solid $TextcolorR;
   border-radius: $borderRadius;
-  outline: $outLine;
+  outline: none;
 }
 .addedPrice {
-  text-align: $TextcAlignC;
+  text-align: center;
   font-size: $fontSize;
   color: $TextcolorR;
 }

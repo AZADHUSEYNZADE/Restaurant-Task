@@ -6,18 +6,18 @@
   padding: 10px;
 
   .navbarUl {
-    display: $dFlex;
+    display: flex;
   }
   li {
     list-style: none;
     margin-left: 30px;
     color: $TextcolorW;
-    cursor: $cursor;
-    font-weight: $boldWight;
+    cursor: pointer;
+    font-weight: bold;
   }
   .restaurantDiv {
     font-size: 25px;
-    cursor: $cursor;
+    cursor: pointer;
     color: $TextcolorW;
     margin-top: 10px;
   }

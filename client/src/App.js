@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Foods from "./components/Foods";
 import NewMeal from "./components/NewMeal";
 import Waiters from "./components/Waiters";
+import NewWaiter from "./components/NewWaiter";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/newOrder" element={<NewOrder />} />
         <Route path="/foods" element={<Foods />} />
         <Route path="/waiters" element={<Waiters />} />
+        <Route path="/newWaiter" element={<NewWaiter />} />
       </Routes>
     </div>
   );

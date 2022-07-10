@@ -4,45 +4,42 @@
 .sidesDiv {
   @include justifyAround;
   height: 100vh;
-  align-items: $AlignItemsC;
+  align-items: center;
 
   .leftSide {
-    display: $dFlex;
-    flex-direction: $flexColumn;
+    display: flex;
+    flex-direction: column;
   }
   .countInput {
     @include marginAuto;
     padding: 5px;
     border: 2px solid $TextcolorR;
-    outline: $outLine;
+    outline: none;
     border-radius: $borderRadius;
   }
   select {
     width: 150px;
-    outline: $outLine;
+    outline: none;
     border: 2px solid $TextcolorR;
     margin: 20px 0px;
     border-radius: $borderRadius;
     color: $TextcolorR;
     padding: 15px 20px;
     font-size: $fontSize;
-    font-weight: $boldWight;
-    text-align: $TextcAlignC;
+    font-weight: bold;
+    text-align: center;
     margin-left: 10px;
   }
 
   .addedPrice {
-    text-align: $TextcAlignC;
+    text-align: center;
     color: $TextcolorR;
   }
 
   .addedBtn {
     @include buttonProperties;
   }
-  .addedBtn:hover {
-    @include buttonHoverProperties;
-    border: 5px solid $TextcolorR;
-  }
+
   .rightSideTable {
     table {
       margin-top: 50px;
@@ -62,7 +59,7 @@
       font-size: $fontSize15;
       position: relative;
       border-radius: $borderRadius;
-      text-align: $TextcAlignC;
+      text-align: center;
     }
   }
 }

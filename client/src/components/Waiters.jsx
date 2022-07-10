@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/waiters.scss";
-import workers from "../mockData/workers";
-function Waiters() {
-  const [waiters, setWorkers] = useState(workers);
+import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { QUERY_KEYS } from "../queries/queryKeys";
+import axios from "axios";
+import { BASE_URL } from "../consts";
 
-  function getWaiters() {
-    fetch(`http://localhost:3333/api/waiters`)
-      .then((response) => response.json())
-      .then((data) => {
-        setWorkers(data);
-        console.log(data);
-      })
-      .catch(() => {
-        console.log("error");
-      });
+function Waiters() {
+  const { data, isLoading, isError } = useQuery(QUERY_KEYS.WAITERS, () =>
+    axios.get(`${BASE_URL}/api/waiters`).then((res) => res.data)
+  );
+
+  if (isLoading) {
+    return "Loading";
   }
 
-  useEffect(() => {
-    getWaiters();
-  }, []);
+  if (isError) {
+    return "Something went wrong";
+  }
+
   return (
     <div className="mainWaiterDiv">
+      <Link to="/newWaiter">
+        <button>Add new waiter</button>
+      </Link>
       <table>
         <tr>
           <th>Number</th>
@@ -31,7 +34,7 @@ function Waiters() {
           <th>Birthday</th>
           <th>Avatar</th>
         </tr>
-        {waiters.map((waiter) => {
+        {data.map((waiter) => {
           return (
             <tr>
               <td>{waiter.id}</td>

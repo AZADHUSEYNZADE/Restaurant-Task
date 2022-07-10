@@ -7,3 +7,8 @@ body {
 a {
   text-decoration: none;
 }
+
+button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}

@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "../styles/foods.scss";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { QUERY_KEYS } from "../queries/queryKeys";
+import axios from "axios";
+import { BASE_URL } from "../consts";
 function Foods() {
-  const [foods, setFoods] = useState([]);
-  function getFoods() {
-    fetch(`http://localhost:3333/api/foods`)
-      .then((response) => response.json())
-      .then((data) => {
-        setFoods(data);
-      })
-      .catch(() => {
-        console.log("error");
-      });
+  const { data, isLoading, isError } = useQuery(QUERY_KEYS.FOODS, () =>
+    axios.get(`${BASE_URL}/api/foods`).then((res) => res.data)
+  );
+
+  if (isLoading) {
+    return "Loading";
   }
 
-  useEffect(() => {
-    getFoods();
-  }, []);
+  if (isError) {
+    return "Something went wrong";
+  }
+
   return (
     <>
       <Link to="/newMeal">
@@ -31,7 +32,7 @@ function Foods() {
             <th>Duration</th>
             <th>Price</th>
           </tr>
-          {foods.map((food) => {
+          {data.map((food) => {
             return (
               <tr>
                 <td>{food.id.substring(1, 8)}</td>

@@ -15,7 +15,9 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  res.send(Orders);
+  setTimeout(() => {
+    res.send(Orders);
+  }, 2000);
 };
 
 exports.findOne = (req, res) => {

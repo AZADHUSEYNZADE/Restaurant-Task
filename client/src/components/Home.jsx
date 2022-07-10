@@ -1,27 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/home.scss";
-import homeinformation from "../mockData/homeinformation";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { useQuery } from "react-query";
+import { QUERY_KEYS } from "../queries/queryKeys";
+import { BASE_URL } from "../consts";
+import axios from "axios";
+
 function Home() {
-  const [restaurantInfo, setRestaurantInfo] = useState(homeinformation);
-  useEffect(() => {
-    setRestaurantInfo(homeinformation);
-  });
+  const { data, isLoading, isError } = useQuery(QUERY_KEYS, () =>
+    axios.get(`${BASE_URL}/api/company-info`).then((res) => res.data)
+  );
+
+  if (isLoading) {
+    return "Loading";
+  }
+
+  if (isError) {
+    return "Something went wrong";
+  }
+
   return (
     <>
-      {restaurantInfo.map((info) => {
-        return (
-          <div className="infoDiv">
-            <h1 className="restInfo">{info.restInfo}</h1>
-            <p className="dailyOrders">Daily Orders:{info.dailyCounts}</p>
-            <p className="orders">Orders:{info.counts}</p>
-            <Link to="/orders">
-              <p className="ordersLink">Sifarishler -></p>
-            </Link>
-          </div>
-        );
-      })}
+      <div className="infoDiv">
+        <h1 className="restInfo">{data.title}</h1>
+        <h1 className="restInfo">{data.description}</h1>
+        <p className="dailyOrders">Daily Orders: 100</p>
+        <p className="orders">Orders: 300</p>
+        <Link to="/orders">
+          <p className="ordersLink">Sifarishler </p>
+        </Link>
+      </div>
     </>
   );
 }

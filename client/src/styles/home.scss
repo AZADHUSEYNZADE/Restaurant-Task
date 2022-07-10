@@ -1,12 +1,13 @@
 @import "../scss/mixins";
 @import "../scss/variables";
 .infoDiv {
-  @include marginAuto;
   flex-direction: column;
+  @include marginAuto;
+
   .restInfo {
     font-size: $fontSize;
-    text-align: $TextcAlignC;
-    align-items: $AlignItemsC;
+    text-align: center;
+    align-items: center;
     font-weight: 400;
     max-width: 800px;
     padding: 30px 40px;
