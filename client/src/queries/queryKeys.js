@@ -1,6 +1,0 @@
-export const QUERY_KEYS = {
-  WAITERS: "WAITERS",
-  FOODS: "FOODS",
-  ORDERS: "ORDERS",
-  COMPANY_INFO: "COMPANY_INFO",
-};
