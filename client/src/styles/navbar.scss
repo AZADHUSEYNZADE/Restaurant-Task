@@ -1,0 +1,12 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+.mainNavbarDiv {
+  background-color: $TextcolorR;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  li {
+    margin-left: 30px;
+    font-weight: bold;
+  }
+}

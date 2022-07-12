@@ -1,0 +1,34 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+.mainDetailDiv {
+  @include justifyCenter;
+
+  th {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  td {
+    border: 3px solid white;
+    padding: 5px;
+    font-size: 15px;
+    position: relative;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .detailNumber {
+    font-size: 18px;
+    position: absolute;
+    top: 6px;
+  }
+  .givingBtn {
+    background-color: $TextcolorR;
+    border: none;
+    cursor: pointer;
+  }
+
+  .gettingBackBtn {
+    background-color: $TextcolorR;
+    border: none;
+    cursor: pointer;
+  }
+}

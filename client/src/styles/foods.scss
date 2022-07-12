@@ -1,0 +1,23 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+.mainFoodsDiv {
+  width: 100%;
+
+  table {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+
+    background-color: $TextcolorR;
+    border-radius: $borderRadius;
+  }
+
+  td,
+  th {
+    border: 3px solid white;
+    padding: 5px;
+    font-size: $fontSize15;
+    border-radius: $borderRadius;
+    text-align: center;
+  }
+}

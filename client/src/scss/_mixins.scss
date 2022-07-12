@@ -1,0 +1,19 @@
+@mixin justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+@mixin orderSizing {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: red;
+}
+
+@mixin marginAuto {
+  display: flex;
+  margin: 0 auto;
+}
+@mixin justifyAround {
+  display: flex;
+  justify-content: space-around;
+}
